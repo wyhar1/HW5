@@ -266,7 +266,8 @@ public class CuckooHash<K, V> {
             toInsert = temp;
             if (position == hash1(toInsert.getBucKey())) {
                 position = hash2(toInsert.getBucKey());
-            } else {
+            } 
+            else {
                 position = hash1(toInsert.getBucKey());
             }
 
