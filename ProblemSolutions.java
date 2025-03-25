@@ -1,6 +1,7 @@
+
 /******************************************************************
  *
- *   YOUR NAME / SECTION NUMBER
+ *   Wyatt Harris COMP 272 001
  *
  *   This java file contains the problem solutions of isSubSet, findKthLargest,
  *   and sort2Arrays methods. You should utilize the Java Collection Framework for
@@ -9,7 +10,6 @@
  ********************************************************************/
 
 import java.util.*;
-
 class ProblemSolutions {
 
     /**
@@ -31,10 +31,18 @@ class ProblemSolutions {
      */
 
     public boolean isSubset(int list1[], int list2[]) {
-
+        //It hurts my brain trying to understand why a hash table is a good choice for this.
+        //It just makes no sense.
         // ADD YOU CODE HERE -- DON'T FORGET TO ADD YOR NAME AT TOP OF FILE
-
-        return false;
+        Hashtable<Integer, Integer> listFirst = new Hashtable<>();
+        for (int i = 0; i < list1.length; i++) {
+            listFirst.put(list1[0], list1[0]); //Genius coder over here.
+        }
+        boolean isSubset = true;
+        for (int i = 0; i < list2.length; i++) {
+            if (!listFirst.containsKey(list2[i])) {isSubset = false;}
+        }
+        return isSubset;
     }
 
 
@@ -52,10 +60,16 @@ class ProblemSolutions {
      */
 
     public int findKthLargest(int[] array, int k) {
-
-        // ADD YOUR CODE HERE
-
-        return 0;
+        if(array == null || array.length < k) {
+            return -1;
+        }
+        int length = array.length;
+        int array2[] = new int[length];
+        for (int i = 0; i < length; i++) {
+            array2[i] = array[i];
+        }
+        Arrays.sort(array2);
+        return array2[length - k];
     }
 
 
@@ -75,8 +89,14 @@ class ProblemSolutions {
     public int[] sort2Arrays(int[] array1, int[] array2) {
 
         // ADD YOU CODE HERE
-
-        return null;
+        int length1 = array1.length;
+        int length2 = array2.length;
+        int[] sortedArray = new int[length1 + length2];
+        System.arraycopy(array1, 0, sortedArray, 0, length1);
+        System.arraycopy(array2, 0, sortedArray, length1, length2);
+        Arrays.sort(sortedArray);
+        //Evil solution
+        return sortedArray;
     }
 
 }
