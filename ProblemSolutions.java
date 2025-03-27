@@ -31,7 +31,6 @@ class ProblemSolutions {
      */
 
     public boolean isSubset(int list1[], int list2[]) {
-        //It hurts my brain trying to understand why a hash table is a good choice for this.
         // ADD YOU CODE HERE -- DON'T FORGET TO ADD YOR NAME AT TOP OF FILE
         Hashtable<Integer, Integer> listFirst = new Hashtable<>();
         for (int i = 0; i < list1.length; i++) {
